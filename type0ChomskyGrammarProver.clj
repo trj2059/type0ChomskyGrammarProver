@@ -22,9 +22,14 @@
 ;; a simple theorem prover for type 0 chomsky grammars.  executes a breadth first
 ;; search on infinite graphs
 
+;; in vscode open a bash terminal and run the following
+;; lein repl :connect 37935
+
 (defn union [s1 s2]
    (set (concat (seq s1) (seq s2)))
   )
+
+;; (get-subst-lsts '(1 2 3) '(1 3))
 
 (defn get-subst-lsts [cfg blk]
     (for [x (take
@@ -126,4 +131,4 @@
    );;loop
  );;defn
 
-(prove-thm [[{'(a) 'X, '(S) '(a b)}] [{'(a b) '(j x x)}] [{'(j x x) 'R}]] '(R) 10 false)
+(prove-thm [[{'(a) 'X, '(S) '(a b)}] [{'(a b) '(j x x)}] [{'(j x x) 'R}]] '(R) 10 true)
